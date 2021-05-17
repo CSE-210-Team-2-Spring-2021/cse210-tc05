@@ -1,0 +1,11 @@
+Information Holders: (Knows things and provides information. May make calculations from the data that it holds.)
+
+Structurers: (Knows the relationships between other objects.)
+
+Controllers:	(Controls and directs the actions of other objects. Decides what other objects should do.)
+
+Coordinators:	(Reacts to events and relays the events to other objects.)
+
+Service Providers:	(Does a service for other objects upon request.)
+
+Interfacers:	(Objects that provide a means to communicate with other parts of the system, external systems or infrastructure, or end users.)
