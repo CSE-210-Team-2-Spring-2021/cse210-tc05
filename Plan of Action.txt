@@ -22,7 +22,7 @@ Structurers: (Knows the relationships between other objects.)
 Controllers:	(Controls and directs the actions of other objects. Decides what other objects should do.)	
 
 Coordinators:	(Reacts to events and relays the events to other objects.)
-	director.py
+	director.py		-TJ
 		Things it needs to do:
 		-Use the other classes to run the game
 		-Keep it as simple as possible using other classes to do the work
