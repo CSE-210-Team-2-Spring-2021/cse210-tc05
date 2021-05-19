@@ -1,11 +1,79 @@
 Information Holders: (Knows things and provides information. May make calculations from the data that it holds.)
+	jumper.py       -Chase Patterson
+		Information to hold:
+		-How much parachute is left (lives remaining) | data type: int | init = 5
+		-The secret word | data type: string | init = ''
+		-Hold the list of potential words.
+
+		Attributes:
+		lives(int) - init = 5 | lives remaining look above
+		words(list) - init = [] | this will be assigned a list from console in director
+		secret_word(string) - init = '' | A method will need to choose this from words
+		man - init = ['  ___  ', ' /___\ ', ' \   / ', '   0   ', '  /|\  ', '  / \  ', '\n', '^^^^^^^']
+		
+		Methods:
+		choose_word - Selects a word from words.
+		update_lives - Takes in an int parameter (-1 or 0) | This method will simply add the parameter to lives |This will also remove first item in man if parameter == -1
+			
+		
 
 Structurers: (Knows the relationships between other objects.)
 
-Controllers:	(Controls and directs the actions of other objects. Decides what other objects should do.)
+Controllers:	(Controls and directs the actions of other objects. Decides what other objects should do.)	
 
 Coordinators:	(Reacts to events and relays the events to other objects.)
+	director.py
+		Things it needs to do:
+		-Use the other classes to run the game
+		-Keep it as simple as possible using other classes to do the work
+		-Use hunter director as a guide
+
+		Attributes:
+		jumper - Instance of jumper class
+		riddler - Instance of riddler class
+		console - Instance of console class
+		keep_playing - init = True
+
+		Methods:
+		start_game - same as solo (starts keep_playing loop) | BEFORE LOOP: use console to read list from file, choose secret word with jumper
+		get_inputs - print riddler.blanks 
 
 Service Providers:	(Does a service for other objects upon request.)
+	riddler.py	-Lucas Gargallo
+		Things to do:
+		-Take the guess, compare it to the secret word and letter
+		-List of bool variables which each correspond to a letter in the secret word | init = True
+
+		Attributes:
+		split_secret_word_list - init = [] | Contains a list of each character from secret_word
+		blanks(list) - init = [_, _, _, _, _](this will need to be a loop, if we do more than 5 letters)| 
+		
+		Method:
+		split_word - param: secret_word | set split_secret_word_list = secret_word.split()
+		compare_letter - param: guess | 
+			
+				IF guess in split_secret_word_list
+					
+					FOR i in range(0, len(split_secret_word_list))
+						IF guess == split_secret_word_list[i]
+							blanks[i] = split_secret_word_list[i]
+					
+					return (0)
+				
+				ELSE
+					return (-1)
+		
+		
+		
 
 Interfacers:	(Objects that provide a means to communicate with other parts of the system, external systems or infrastructure, or end users.)
+	console.py	-Kyle Ames
+		Things it needs to do:
+		-Read input from user aka "Guess a letter [a-z]: z"
+		-Print output (refer to solo checkpoint)
+		-Method to read list of words from text file - return list
+		-print_list method 
+
+		
+
+
