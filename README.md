@@ -48,3 +48,4 @@ root                    (project root folder)
 Nathaniel Jackson - jac20003@byui.edu
 TJ Anderson - and15126@byui.edu
 Lucas Gargallo - gargallo@byui.edu
+Kyle Ames - ame18007@byui.edu
