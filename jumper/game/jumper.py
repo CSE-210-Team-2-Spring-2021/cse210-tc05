@@ -35,14 +35,12 @@ class Jumper():
         """
         self.secret_word = random.choice(self.words)
 
-    def update_lives(self):
+    def update_lives(self, score):
         """ Takes in an int parameter (-1 or 0) and will simply add the parameter to lives and will also remove first item in man if parameter == -1
 
             Args:
               self (Jumper): an instance of Jumper.
         """
-        if self.guess != self.secret_word:
-            self.man.remove()
+        if score == -1:
+            self.man.pop(0)
             return self.lives - 1
-        elif self.guess == self.secret_word:
-            return self.lives - 0
