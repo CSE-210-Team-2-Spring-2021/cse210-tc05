@@ -22,9 +22,9 @@ class Console:
         """
 
         # open the text file with list of words
-        with open("secret_words_list.txt") as secret_words_file:
-        
-            return secret_words_file
+        words_file = open("secret_words_list.txt")
+        secret_words_list = words_file.readlines()
+        return secret_words_list
 
     def get_guess(self):
         """Gets letter input from the user through the screen.
