@@ -1,0 +1,34 @@
+import game.jumper.py
+
+class Riddler:
+    """
+    Stereotype:  Information Holder
+
+    """
+    #Class constructor. Declares and initializes instance attributes.
+    def __init__(self):
+        
+        self.jumper = Jumper()
+        self.split_secret_word_list = list(self.jumper.secret_word)     #It will save a list with each letter from the secret word
+        self.hidden_letters_list = []                                   #It will be filled with the create_hidden_letters_list method
+    
+    # Create lines (underscores) to indicate that a letter will be in that position, and also, there are as many lines as letters in the secret word.
+    def create_hidden_letters_list(self,secret_word):
+        for i in range(0,len(secret_word)-1):
+            self.hidden_letters_list.append("_")
+
+    # Compare the prompt letter with the secret word.
+    # If the letter is in the list. It will replace from the "Hidden word" list (hidden_letters_list) the corresponding underscore with the letter/s
+    # It will return 0 if the letter is on the secret word
+    # It will return -1 if the letter is not on the secret word and the player will lost a live 
+    
+    def compare_letter(self,guess):
+        if guess in self.split_secret_word_list:
+            for i in range(0,len(self.jumper.secret_word)):
+                if guess == self.split_secret_word_list[i]:
+                    self.hidden_letters_list[i] = self.split_secret_word_list[i]
+                    return(0)
+                    break
+                else:
+                    return (-1)
+
