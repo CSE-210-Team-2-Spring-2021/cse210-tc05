@@ -14,7 +14,7 @@ Information Holders: (Knows things and provides information. May make calculatio
 		Methods:
 		choose_word - Selects a word from words.
 		update_lives - Takes in an int parameter (-1 or 0) | This method will simply add the parameter to lives |This will also remove first item in man if parameter == -1
-			
+		print_jumper - Prints the Jumper and parachute to the screen.	
 		
 
 Structurers: (Knows the relationships between other objects.)
