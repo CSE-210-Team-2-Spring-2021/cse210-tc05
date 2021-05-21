@@ -47,3 +47,5 @@ root                    (project root folder)
 * TODO: Add your names and emails here
 Nathaniel Jackson - jac20003@byui.edu
 TJ Anderson - and15126@byui.edu
+Kyle Ames - ame18007@byui.edu
+
