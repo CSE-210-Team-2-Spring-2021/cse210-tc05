@@ -43,4 +43,4 @@ class Jumper():
         """
         if score == -1:
             self.man.pop(0)
-            return self.lives - 1
+            self.lives -= 1
