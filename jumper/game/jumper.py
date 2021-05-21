@@ -33,10 +33,7 @@ class Jumper():
             Args:
               self (Jumper): an instance of Jumper
         """
-        random.shuffle(self.words)
-        for word in self.words:
-            self.secret_word = word
-        return self.secret_word
+        self.secret_word = random.choice(self.words)
 
     def update_lives(self):
         """ Takes in an int parameter (-1 or 0) and will simply add the parameter to lives and will also remove first item in man if parameter == -1
@@ -45,15 +42,7 @@ class Jumper():
               self (Jumper): an instance of Jumper.
         """
         if self.guess != self.secret_word:
-            return -1
+            self.man.remove()
+            return self.lives - 1
         elif self.guess == self.secret_word:
-            return 0
-
-    def print_jumper(self):
-        """ This method prints the jumper and parachute to the screen.
-
-            Args:
-              self (Jumper): an instance of Jumper.
-        """
-        for i in self.man:
-            print(*self.man, sep="\n")
+            return self.lives - 0
