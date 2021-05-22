@@ -47,7 +47,7 @@ class Console:
         Args: 
             self (Screen): An instance of Screen.
             text (string): The text to display.
-            list (list):  
+            list (list):  The jumper man to display.
         """
         # print a string from 
         print(text)
@@ -56,4 +56,14 @@ class Console:
         for thing in list:
             print(thing)
 
+    def game_over (game_won, game_lost):
+        """Checks for if game continues or is over and then prints end message
 
+        Args: game continue(bool): game continues on to next guess 
+              game endd(bool): game over message appears
+        """
+        if game_won == True and game_lost == False:
+            print("Congratulations, you guessed the secret word and saved the jumper!")
+
+        if game_lost == True and game_won == False:
+            print("You ran out of lives, and so did the jumper. Better luck next time.")
