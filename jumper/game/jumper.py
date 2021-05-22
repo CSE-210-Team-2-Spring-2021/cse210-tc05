@@ -28,12 +28,12 @@ class Jumper():
         self.man = ['  ___  ', ' /___\ ', ' \   / ', '\ /',
                     '   0   ', '  /|\  ', '  / \  ', '\n', '^^^^^^^']
 
-    def choose_word(self):
+    def choose_word(self, list):
         """ Selects words from words list to give a random word to guess.
             Args:
               self (Jumper): an instance of Jumper
         """
-        self.secret_word = random.choice(self.words)
+        self.secret_word = random.choice(list)
 
     def update_lives(self, score):
         """ Takes in an int parameter (-1 or 0) and will simply add the parameter to lives and will also remove first item in man if parameter == -1
