@@ -25,7 +25,7 @@ class Jumper():
         self.lives = 5
         self.words = []
         self.secret_word = ""
-        self.man = ['  ___  ', ' /___\ ', ' \   / ', '\ /',
+        self.man = ['  ___  ', ' /___\ ', ' \   / ', '  \ /',
                     '   0   ', '  /|\  ', '  / \  ', '\n', '^^^^^^^']
 
     def choose_word(self, list):
