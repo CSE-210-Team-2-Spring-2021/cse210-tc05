@@ -43,8 +43,9 @@ class Director:
         """
         
         file_temp = self.console.read_file()
-        self.riddle = self.jumper.choose_word(file_temp)
-        self.riddler.split_list(self.riddle)
+        self.jumper.choose_word(file_temp)
+        self.riddler.split_list(self.jumper.secret_word)
+        self.riddler.create_hidden_letters_list(self.jumper.secret_word)
         
         while self.keep_playing:
             self.get_inputs()
@@ -69,6 +70,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        answer = self.riddler.compare_letter(self.guess, self.jumper.secret_word)
+        self.jumper.update_lives(answer)
+
 
         if self.riddler.hidden_word_revealed():
             self.game_won = True
@@ -77,13 +81,11 @@ class Director:
         elif self.jumper.lives <= 0:
             self.game_lost = True
             self.console.game_over (self.game_won, self.game_lost)
+            self.console.write(f"The secret word was: {self.jumper.secret_word}", [])
 
         if self.game_won or self.game_lost:
             self.keep_playing = False
 
-        else:
-            answer = self.riddler.compare_letter(self.riddle, self.guess)
-            self.jumper.update_lives(answer)
 
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -93,4 +95,4 @@ class Director:
             self (Director): An instance of Director.
         """
 
-        self.console.write
+        self.console.write(self.riddler.hidden_letters_list, self.jumper.man)

@@ -1,4 +1,5 @@
 import random
+from tkinter import filedialog
 
 class Console:
     """A code template for a computer console. The responsibility of this 
@@ -22,7 +23,7 @@ class Console:
         """
 
         # open the text file with list of words
-        words_file = open("secret_words_list.txt")
+        words_file = filedialog.askopenfile()
         secret_words_list = words_file.readlines()
         return secret_words_list
 
@@ -56,7 +57,7 @@ class Console:
         for thing in list:
             print(thing)
 
-    def game_over (game_won, game_lost):
+    def game_over (self, game_won, game_lost):
         """Checks for if game continues or is over and then prints end message
 
         Args: game continue(bool): game continues on to next guess 

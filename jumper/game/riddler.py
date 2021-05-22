@@ -19,8 +19,8 @@ class Riddler:
 
     
     # Create lines (underscores) to indicate that a letter will be in that position, and also, there are as many lines as letters in the secret word.
-    def create_hidden_letters_list(self,secret_word):
-        for i in range(0,len(secret_word)):
+    def create_hidden_letters_list(self, secret_word):
+        for i in range(0,len(secret_word) - 1):
             self.hidden_letters_list.append("_")
 
 
@@ -29,13 +29,17 @@ class Riddler:
     # It will return 0 if the letter is on the secret word
     # It will return -1 if the letter is not on the secret word and the player will lost a live 
     def compare_letter(self,guess,secret_word):
-            for i in range(0,len(secret_word)):
-                if guess.lower() == self.split_secret_word_list[i]:
-                    self.hidden_letters_list[i] = self.split_secret_word_list[i]
-                    return(0)
-                    break
-                else:
-                    return (-1)
+            for i in range(0,len(secret_word) - 1):
+                print("another test")
+                if self.hidden_letters_list[i] == '_':
+                    print('test')
+                    if guess.lower() == self.split_secret_word_list[i]:
+                        self.hidden_letters_list[i] = self.split_secret_word_list[i]
+                        return(0)
+                        break
+            
+            if True:
+                return (-1)
 
 
     # Check if all the underscores in split_secret_word_list were replaced with letters
