@@ -1,4 +1,4 @@
-import random
+import random, os
 from tkinter import filedialog
 
 class Console:
@@ -23,7 +23,7 @@ class Console:
         """
 
         # open the text file with list of words
-        words_file = filedialog.askopenfile()
+        words_file = filedialog.askopenfile(title = 'Open File', initialdir = os.getcwd() + '\jumper')
         secret_words_list = words_file.readlines()
         return secret_words_list
 

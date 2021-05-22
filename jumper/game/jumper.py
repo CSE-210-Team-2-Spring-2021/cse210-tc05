@@ -44,3 +44,6 @@ class Jumper():
         if score == -1:
             self.man.pop(0)
             self.lives -= 1
+    
+        if self.lives == 0:
+            self.man.insert(0, '   X   ')

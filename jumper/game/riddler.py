@@ -29,15 +29,17 @@ class Riddler:
     # It will return 0 if the letter is on the secret word
     # It will return -1 if the letter is not on the secret word and the player will lost a live 
     def compare_letter(self,guess,secret_word):
-            for i in range(0,len(secret_word) - 1):
-                if self.hidden_letters_list[i] == '_':
-                    if guess.lower() == self.split_secret_word_list[i]:
-                        self.hidden_letters_list[i] = self.split_secret_word_list[i]
-                        return(0)
-                        break
-            
-            if True:
-                return (-1)
+        letter_discovered = False
+        for i in range(0,len(secret_word) - 1):
+            if self.hidden_letters_list[i] == '_':
+                if guess.lower() == self.split_secret_word_list[i]:
+                    self.hidden_letters_list[i] = self.split_secret_word_list[i]
+                    letter_discovered = True
+        if letter_discovered:
+            return(0)            
+        
+        if True:
+            return (-1)
 
 
     # Check if all the underscores in split_secret_word_list were replaced with letters
