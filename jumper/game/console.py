@@ -42,7 +42,7 @@ class Console:
     
         return guess
 
-    def write(self, text, list):
+    def write(self, text, printed_list):
         """Displays the given text on the screen. 
 
         Args: 
@@ -51,10 +51,17 @@ class Console:
             list (list):  The jumper man to display.
         """
         # print a string from 
-        print(text)
+        if isinstance(text, list):
+            for letter in text:
+                print(letter, end = ' ')
+            
+            print('\n')
+
+        elif isinstance(text, str):
+            print(text)
 
         # print out a list that is passed as arg
-        for thing in list:
+        for thing in printed_list:
             print(thing)
 
     def game_over (self, game_won, game_lost):
