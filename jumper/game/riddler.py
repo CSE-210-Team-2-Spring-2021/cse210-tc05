@@ -30,9 +30,7 @@ class Riddler:
     # It will return -1 if the letter is not on the secret word and the player will lost a live 
     def compare_letter(self,guess,secret_word):
             for i in range(0,len(secret_word) - 1):
-                print("another test")
                 if self.hidden_letters_list[i] == '_':
-                    print('test')
                     if guess.lower() == self.split_secret_word_list[i]:
                         self.hidden_letters_list[i] = self.split_secret_word_list[i]
                         return(0)
