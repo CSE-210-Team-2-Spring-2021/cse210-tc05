@@ -40,3 +40,20 @@ class Console:
         guess = input("Guess a letter [a-z]: ")
     
         return guess
+
+    def write(self, text, list):
+        """Displays the given text on the screen. 
+
+        Args: 
+            self (Screen): An instance of Screen.
+            text (string): The text to display.
+            list (list):  
+        """
+        # print a string from 
+        print(text)
+
+        # print out a list that is passed as arg
+        for thing in list:
+            print(thing)
+
+
