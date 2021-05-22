@@ -11,10 +11,13 @@ class Director:
 
     Attributes:
         console (Console): An instance of the class of objects known as Console.
-        keep_playing (boolean): Whether or not the game can continue.
         jumper (Jumper): An instance of the class of objects known as Jumper
         riddler (Rabbit): An instance of the class of objects known as Riddler.
-        guess (string): Stores the user's guess between methods.
+        riddle (string): Stores the secret word between methods.
+        guesss (string): Stores the user's guess between methods.
+        game_won (boolean): Whether the game has been won or not.
+        game_lost (boolean): Whether the game has been lost or not.
+        keep_playing (boolean): Whether or not the game can continue.
     """
 
     def __init__(self):
@@ -26,8 +29,10 @@ class Director:
         self.console = Console()
         self.jumper = Jumper()
         self.riddler = Riddler()
-        
+        self.riddle = ""
         self.guess = ""
+        self.game_won = False
+        self.game_lost = False
         self.keep_playing = True
 
     def start_game(self):
@@ -38,8 +43,8 @@ class Director:
         """
         
         file_temp = self.console.read_file()
-        riddle = self.jumper.choose_word(file_temp)
-        self.riddler.split_secret_word(riddle)
+        self.riddle = self.jumper.choose_word(file_temp)
+        self.riddler.split_list(self.riddle)
         
         while self.keep_playing:
             self.get_inputs()
@@ -65,8 +70,20 @@ class Director:
             self (Director): An instance of Director.
         """
 
-        answer = self.riddler.compare_letter(self.riddle, self.guess)
-        self.jumper.update_lives(answer)
+        if self.riddler.hidden_word_revealed():
+            self.game_won = True
+            self.console.game_over (self.game_won, self.game_lost)
+
+        elif self.jumper.lives <= 0:
+            self.game_lost = True
+            self.console.game_over (self.game_won, self.game_lost)
+
+        if self.game_won or self.game_lost:
+            self.keep_playing = False
+
+        else:
+            answer = self.riddler.compare_letter(self.riddle, self.guess)
+            self.jumper.update_lives(answer)
 
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -76,5 +93,4 @@ class Director:
             self (Director): An instance of Director.
         """
 
-        print(self.riddler.blanks)
-        print(self.jumper.man)
+        self.console.write
